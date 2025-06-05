@@ -1,10 +1,18 @@
-let qtdNumeros = document.getElementById('quantidade');
-let de = document.getElementById('de');
-let ate = document.getElementById('ate');
+let numero;
 
+function sortear() {
+    let qtdNumeros = parseInt(document.getElementById('quantidade').value);
+    let de = parseInt(document.getElementById('de').value);
+    let ate = parseInt(document.getElementById('ate').value);
 
-function sortear(){
-    window.alert(`Quantidade de números: ${qtdNumeros.value}`);
-    window.alert(`Do número: ${de.value}`);
-    window.alert(`Até o número: ${ate.value}`);
+    let sorteados = [];
+    for(let i = 0; i < qtdNumeros; i++){
+        numero = obterNumeroAleatorio(de, ate);
+        sorteados.push(numero);
+    }
+    alert(sorteados);    
+}
+
+function obterNumeroAleatorio(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
