@@ -5,8 +5,19 @@ function sortear() {
     let de = parseInt(document.getElementById('de').value);
     let ate = parseInt(document.getElementById('ate').value);
     let resultado = document.getElementById('resultado');
-
+    let qtdNumPossiveis = (ate - de) + 1;
     let sorteados = [];
+
+    if(de >= ate){
+        alert('O valor do campo "DO NÚMERO" deve ser menor que do campo "ATÉ O NÚMERO"');
+        return;
+    }
+
+    if(qtdNumeros > qtdNumPossiveis ){
+        alert(`Para este intervalo só é possível sortear até ${qtdNumPossiveis} números!`);
+        return;
+    }
+ 
     for(let i = 0; i < qtdNumeros; i++){
         numeroGerado = obterNumeroAleatorio(de, ate);
 
